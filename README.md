@@ -1,6 +1,8 @@
 # dotfiles
 
-<h> The gauntlet is thrown. </h>
+## The gauntlet is thrown
 
-<h> There's this: https://github.com/holman/dotfiles \
-omg! https://github.com/ybakos/dotfiles</h>
+### There's these
+
+[Holman](https://github.com/holman/dotfiles)
+[Yong Bakos the Golden God](https://github.com/ybakos/dotfiles)
