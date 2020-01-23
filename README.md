@@ -5,7 +5,7 @@
 ### Suggested Layout
 
 Seperate folder to contain dotfiles and system setups for each person.
-I amgonna make this change without asking >.>
+I am gonna make this change without asking >.>
 
 ### There's these
 
