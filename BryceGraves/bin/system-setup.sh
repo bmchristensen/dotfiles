@@ -73,7 +73,6 @@ wget –no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/maste
 chsh -s /bin/zsh
 wget --no-check-certificate http://install.ohmyz.sh -O - | sh
 cp dotfiles/BryceGraves/src/.zshrc .zshrc
-source ~/.zshrc
 
 echo "
   -------------------------
@@ -89,7 +88,9 @@ echo "
 
 "
 
+zsh
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+exit
 
 echo "
   ------------------------------------
@@ -105,10 +106,11 @@ echo "
 
 "
 
+zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
-source ~/.zshrc
+exit
 
 echo "
   ------------------------------------
@@ -199,7 +201,7 @@ echo "<---- Golang ---->
 
 "
 
-add-apt-repository ppa:longsleep/golang-backports
+echo | add-apt-repository ppa:longsleep/golang-backports
 apt update
 apt install -y golang-go
 
@@ -217,7 +219,7 @@ apt update
 apt install -y apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 apt-key fingerprint 0EBFCD88
-add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+echo | add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 apt update
 apt install docker-ce
 groupadd docker
@@ -260,7 +262,7 @@ apt install -y vlc
 echo "<---- Deluge ---->
 
 "
-add-apt-repository ppa:deluge-team/stable
+echo | add-apt-repository ppa:deluge-team/stable
 apt update
 apt install -y deluge
 
@@ -286,7 +288,7 @@ cd
 echo "<---- Telegram ---->
 
 "
-add-apt-repository ppa:atareao/telegram
+echo | add-apt-repository ppa:atareao/telegram
 apt update
 apt install -y telegram
 
@@ -297,7 +299,7 @@ echo "<---- Spotify ---->
 "
 
 apt-add-repository -y "deb http://repository.spotify.com stable non-free"
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 94558F59
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys A87FF9DF48BF1C90
 apt update
 apt install spotify-client -y --allow-unauthenticated
 
