@@ -248,6 +248,13 @@ echo "<---- VLC ---->
 "
 apt install -y vlc
 
+echo "<---- Deluge ---->
+
+"
+add-apt-repository ppa:deluge-team/stable
+apt update
+apt install -y deluge
+
 echo "<---- VS Code Insiders ---->
 
 "
