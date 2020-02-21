@@ -58,7 +58,7 @@ echo "
 
 "
 
-apt install -y curl dconf-cli uuid-runtime wget
+apt install -y curl dconf-cli uuid-runtime wget neovim
 
 echo "
   --------------------
