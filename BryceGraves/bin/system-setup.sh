@@ -58,7 +58,7 @@ echo "
 
 "
 
-apt install -y curl wget
+apt install -y curl dconf-cli uuid-runtime wget
 
 echo "
   --------------------
@@ -129,6 +129,15 @@ git clone git@github.com:ryanoasis/nerd-fonts.git
 cd nerd-fonts
 ./install.sh
 cd
+
+echo "
+  ---------------------------
+  Setting up terminal styling
+  ---------------------------
+
+"
+
+echo "ALL" | bash -c  "$(wget -qO- https://git.io/vQgMr)"
 
 echo "
   -----------------------------------------
