@@ -70,7 +70,7 @@ echo "
 
 "
 
-apt install -y curl dconf-cli uuid-runtime wget ctags vim-scripts neovim python-neovim python3-neovim xclip
+apt install -y curl git dconf-cli uuid-runtime wget ctags vim-scripts neovim python-neovim python3-neovim xclip
 
 echo "
   --------------------
