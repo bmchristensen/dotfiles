@@ -84,7 +84,7 @@ echo "
 "
 sudo apt update
 sudo apt install -y build-essential curl git dconf-cli uuid-runtime wget \
-ctags neovim vim-plug vim-scripts python-neovim python3-neovim default-jre default-jdk python \
+ctags neovim vim-scripts python-neovim python3-neovim default-jre default-jdk python \
 python3 python-pip python3-pip xclip yarn golang-go apt-transport-https ca-certificates \
 software-properties-common nginx mysql-server php-fpm php-mysql autoconf \
 bison libssl-dev libyaml-dev libreadline-dev zlib1g-dev libncurses5-dev docker.io \
