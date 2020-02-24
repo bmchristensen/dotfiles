@@ -87,7 +87,8 @@ apt install -y --install-suggests build-essential curl git dconf-cli uuid-runtim
 ctags vim-scripts neovim default-jre default-jdk python python3 python-pip python3-pip \
 python-neovim python3-neovim xclip yarn golang-go apt-transport-https ca-certificates \
 software-properties-common docker-ce nginx mysql-server php5-fpm php5-mysql autoconf \
-bison libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev docker.io
+bison libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev docker.io \
+libxss1 libappindicator1 libindicator7
 
 echo "
 
@@ -190,7 +191,7 @@ echo "
 "
 
 cd Programs
-git clone git@github.com:ryanoasis/nerd-fonts.git
+git clone https://github.com/ryanoasis/nerd-fonts.git
 cd nerd-fonts
 ./install.sh
 cd
@@ -222,7 +223,6 @@ echo "<---- Chrome ---->
 
 "
 
-apt install -y libxss1 libappindicator1 libindicator7
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 apt install -y ./google-chrome*.deb
 
@@ -275,10 +275,10 @@ echo "<---- Spotify ---->
 
 "
 
-apt-add-repository -y "deb http://repository.spotify.com stable non-free"
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys A87FF9DF48BF1C90
+curl -sS https://download.spotify.com/debian/pubkey.gpg | apt-key add - 
+echo "deb http://repository.spotify.com stable non-free" | tee /etc/apt/sources.list.d/spotify.list
 apt update
-apt install spotify-client -y --allow-unauthenticated
+apt install -y spotify-client
 
 echo "<---- Slack ---->
 
