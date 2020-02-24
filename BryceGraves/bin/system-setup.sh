@@ -22,7 +22,7 @@ echo "
 
 "
 apt update
-apt -y full-upgrade
+apt full-upgrade -y
 
 echo "
   -----------------------------
