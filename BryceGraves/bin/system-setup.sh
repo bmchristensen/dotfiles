@@ -77,15 +77,6 @@ echo "
 "
 echo | add-apt-repository ppa:longsleep/golang-backports
 
-
-echo "
-
-  <---- Docker ---->
-"
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-apt-key fingerprint 0EBFCD88
-echo | add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-
 echo "
 
   <---- Installing all packages ---->
@@ -96,7 +87,7 @@ apt install -y --install-suggests build-essential curl git dconf-cli uuid-runtim
 ctags vim-scripts neovim default-jre default-jdk python python3 python-pip python3-pip \
 python-neovim python3-neovim xclip yarn golang-go apt-transport-https ca-certificates \
 software-properties-common docker-ce nginx mysql-server php5-fpm php5-mysql autoconf \
-bison libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev
+bison libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev docker.io
 
 echo "
 
@@ -123,12 +114,11 @@ service nginx restart
 
 echo "
 
-  <---- Finalizing docker install ---->
+  <---- Setting docker to run on start  ---->
 
 "
-
-groupadd docker
-usermod -aG docker $USER
+systemctl start docker
+systemctl enable docker
 
 echo "
 
@@ -147,11 +137,8 @@ echo "
 
 "
 
-apt install -y python-pygments
-apt install -y zsh
-wget –no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O – | sh
-chsh -s /bin/zsh
-wget --no-check-certificate http://install.ohmyz.sh -O - | sh
+apt install -y --install-suggests python-pygments zsh
+echo "Y" | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 cp dotfiles/BryceGraves/src/.zshrc .zshrc
 
 echo "
