@@ -259,8 +259,8 @@ echo "<---- Discord ---->
 
 "
 cd Programs
-wget "https://discordapp.com/api/download?platform=linux&format=deb"
-sudo apt install -y ./discord*.deb
+wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
+sudo apt install -y ./discord.deb
 cd
 
 echo "<---- Telegram ---->
