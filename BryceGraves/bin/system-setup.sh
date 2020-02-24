@@ -52,13 +52,79 @@ echo "
 "
 
 echo "
-  -----------------------------------------------
-  Installing packages required for later installs
-  -----------------------------------------------
+  --------------------------------------------------------------------------
+  Setting up development environment and installing other important packages
+  --------------------------------------------------------------------------
 
 "
 
-apt install -y curl git dconf-cli uuid-runtime wget ctags vim-scripts neovim python-neovim python3-neovim xclip
+echo "
+
+  <---- Adding all keys for for development packages ---->
+
+"
+
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+echo | add-apt-repository ppa:longsleep/golang-backports
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+apt-key fingerprint 0EBFCD88
+echo | add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+apt update
+
+echo "
+
+  <---- Installing all packages ---->
+
+"
+
+apt install -y --install-suggests build-essential curl git dconf-cli uuid-runtime wget \
+ctags vim-scripts neovim default-jre default-jdk python python3 python-pip python3-pip \
+python-neovim python3-neovim xclip yarn golang-go apt-transport-https ca-certificates \
+software-properties-common docker-ce nginx mysql-server php5-fpm php5-mysql autoconf \
+bison libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev
+
+echo "
+
+  <---- Setting up rbenv ---->
+
+"
+
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+git clone https://github.com/tpope/rbenv-aliases.git ~/.rbenv/plugins/rbenv-aliases
+rbenv alias --auto
+git clone https://github.com/rbenv/rbenv-default-gems.git ~/.rbenv/plugins/rbenv-default-gems
+rbenv install 2.5.1
+rbenv install 2.6.5
+
+
+echo "
+
+  <---- Finalizing nginx install ---->
+
+"
+
+service nginx restart
+
+echo "
+
+  <---- Finalizing docker install ---->
+
+"
+
+groupadd docker
+usermod -aG docker $USER
+
+echo "
+
+  <---- Adding javascript linters to user root ---->
+
+"
+
+cp dotfiles/BryceGraves/src/.eslintrc .eslintrc
+cp dotfiles/BryceGraves/src/.prettierrc .prettierrc
+
 
 echo "
   --------------------
@@ -143,91 +209,6 @@ echo "
   -----------------------------------------
 
 "
-
-echo "
-  ----------------------------------
-  Setting up development enviroments
-  ----------------------------------
-
-"
-
-echo "<---- C/C++ ---->
-
-"
-
-apt install -y build-essential
-
-echo "<---- Ruby ---->
-
-"
-
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-apt install -y autoconf bison libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev
-git clone https://github.com/tpope/rbenv-aliases.git ~/.rbenv/plugins/rbenv-aliases
-rbenv alias --auto
-git clone https://github.com/rbenv/rbenv-default-gems.git ~/.rbenv/plugins/rbenv-default-gems
-rbenv install 2.5.1
-rbenv install 2.6.5
-
-echo "<---- Java ---->
-
-"
-
-apt install -y default-jre default-jdk
-
-echo "<---- Javascript ---->
-
-"
-
-cp dotfiles/BryceGraves/src/.eslintrc .eslintrc
-cp dotfiles/BryceGraves/src/.prettierrc .prettierrc
-
-echo "<---- Yarn ---->
-
-"
-
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-apt update
-apt install -y yarn
-
-echo "<---- Golang ---->
-
-"
-
-echo | add-apt-repository ppa:longsleep/golang-backports
-apt update
-apt install -y golang-go
-
-echo "<---- Python/Python3 ---->
-
-"
-
-apt install -y python python3 python-pip python3-pip
-
-echo "<---- Docker ---->
-
-"
-apt remove docker docker-engine docker.io
-apt update
-apt install -y apt-transport-https ca-certificates curl software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-apt-key fingerprint 0EBFCD88
-echo | add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-apt update
-apt install docker-ce
-groupadd docker
-usermod -aG docker $USER
-
-echo "<---- Nginx ---->
-
-"
-apt update
-apt install -y nginx
-apt install -y mysql-server
-apt install -y php5-fpm php5-mysql
-service nginx restart
 
 echo "
   -------------------------------
