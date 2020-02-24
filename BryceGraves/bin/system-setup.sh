@@ -58,7 +58,7 @@ echo "
 
 "
 
-apt install -y curl dconf-cli uuid-runtime wget neovim
+apt install -y curl dconf-cli uuid-runtime wget neovim python-neovim python3-neovim xclip
 
 echo "
   --------------------
