@@ -52,13 +52,25 @@ echo "
 "
 
 echo "
+  ---------------------------------------------------------------
+  Setting up aptitude to install suggested packages automatically
+  ---------------------------------------------------------------
+
+"
+
+su
+echo "APT::Install-Suggests \"true\";" >> .aptitude/config
+exit
+
+
+echo "
   -----------------------------------------------
   Installing packages required for later installs
   -----------------------------------------------
 
 "
 
-apt install -y curl dconf-cli uuid-runtime wget ctags vim-scripts neovim python-neovim python3-neovim xclip --install-suggests
+apt install -y curl dconf-cli uuid-runtime wget ctags vim-scripts neovim python-neovim python3-neovim xclip
 
 echo "
   --------------------
