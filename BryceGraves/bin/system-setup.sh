@@ -75,7 +75,7 @@ echo "
 
   <---- Golang ---->
 "
-add-apt-repository -y ppa:longsleep/golang-backports
+sudo add-apt-repository -y ppa:longsleep/golang-backports
 
 echo "
 
