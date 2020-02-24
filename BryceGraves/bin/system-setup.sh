@@ -64,20 +64,34 @@ echo "
 
 "
 
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+echo "
+
+  <---- Yarn ---->
+"
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.listecho "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+
+echo "
+
+  <---- Golang ---->
+"
 echo | add-apt-repository ppa:longsleep/golang-backports
+
+
+echo "
+
+  <---- Docker ---->
+"
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 apt-key fingerprint 0EBFCD88
 echo | add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-apt update
 
 echo "
 
   <---- Installing all packages ---->
 
 "
-
+apt update
 apt install -y --install-suggests build-essential curl git dconf-cli uuid-runtime wget \
 ctags vim-scripts neovim default-jre default-jdk python python3 python-pip python3-pip \
 python-neovim python3-neovim xclip yarn golang-go apt-transport-https ca-certificates \
