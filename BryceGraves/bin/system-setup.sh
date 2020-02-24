@@ -21,8 +21,8 @@ echo "
   -------------------------------
 
 "
-apt update
-apt full-upgrade -y
+sudo apt update
+sudo apt full-upgrade -y
 
 echo "
   -----------------------------
@@ -69,25 +69,25 @@ echo "
   <---- Yarn ---->
 "
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.listecho "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
 echo "
 
   <---- Golang ---->
 "
-echo | add-apt-repository ppa:longsleep/golang-backports
+add-apt-repository -y ppa:longsleep/golang-backports
 
 echo "
 
   <---- Installing all packages ---->
 
 "
-apt update
-apt install -y --install-suggests build-essential curl git dconf-cli uuid-runtime wget \
+sudo apt update
+sudo apt install -y --install-suggests build-essential curl git dconf-cli uuid-runtime wget \
 ctags vim-scripts neovim default-jre default-jdk python python3 python-pip python3-pip \
 python-neovim python3-neovim xclip yarn golang-go apt-transport-https ca-certificates \
-software-properties-common docker-ce nginx mysql-server php5-fpm php5-mysql autoconf \
-bison libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev docker.io \
+software-properties-common nginx mysql-server php-fpm php-mysql autoconf \
+bison libssl-dev libyaml-dev libreadline-dev zlib1g-dev libncurses5-dev docker.io \
 libxss1 libappindicator1 libindicator7
 
 echo "
@@ -138,7 +138,7 @@ echo "
 
 "
 
-apt install -y --install-suggests python-pygments zsh
+sudo apt install -y --install-suggests python-pygments zsh
 echo "Y" | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 cp dotfiles/BryceGraves/src/.zshrc .zshrc
 
@@ -222,26 +222,27 @@ echo "
 echo "<---- Chrome ---->
 
 "
-
+cd Programs
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-apt install -y ./google-chrome*.deb
+sudo apt install -y ./google-chrome*.deb
+cd
 
 echo "<---- Purging firefox ---->
 
 "
-apt purge -y firefox
+sudo apt purge -y firefox
 
 echo "<---- VLC ---->
 
 "
-apt install -y vlc
+sudo apt install -y vlc
 
 echo "<---- Deluge ---->
 
 "
-echo | add-apt-repository ppa:deluge-team/stable
-apt update
-apt install -y deluge
+sudo add-apt-repository -y ppa:deluge-team/stable
+sudo apt update
+sudo apt install -y deluge
 
 echo "<---- VS Code Insiders ---->
 
@@ -250,8 +251,8 @@ cd Programs
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-apt update
-apt install -y code-insiders
+sudo apt update
+sudo apt install -y code-insiders
 cd
 
 echo "<---- Discord ---->
@@ -259,15 +260,15 @@ echo "<---- Discord ---->
 "
 cd Programs
 wget "https://discordapp.com/api/download?platform=linux&format=deb"
-apt install -y ./discord*.deb
+sudo apt install -y ./discord*.deb
 cd
 
 echo "<---- Telegram ---->
 
 "
-echo | add-apt-repository ppa:atareao/telegram
-apt update
-apt install -y telegram
+sudo add-apt-repository -y ppa:atareao/telegram
+sudo apt update
+sudo apt install -y telegram
 
 
 
@@ -275,15 +276,15 @@ echo "<---- Spotify ---->
 
 "
 
-curl -sS https://download.spotify.com/debian/pubkey.gpg | apt-key add - 
-echo "deb http://repository.spotify.com stable non-free" | tee /etc/apt/sources.list.d/spotify.list
-apt update
-apt install -y spotify-client
+curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+sudo apt update
+sudo apt install -y spotify-client
 
 echo "<---- Slack ---->
 
 "
 cd Programs
 wget "https://downloads.slack-edge.com/linux_releases/slack-desktop-4.3.2-amd64.deb"
-apt install -y ./slack*.deb
+sudo apt install -y ./slack*.deb
 cd
