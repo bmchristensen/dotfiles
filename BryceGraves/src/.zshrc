@@ -114,7 +114,7 @@ alias -g opdir="nemo"
 alias -g tl="task list"
 alias -g code="code-insiders"
 alias -g co="code ."
-alias -g update="sudo apt update && yes | sudo apt full-upgrade"
+alias -g fu="sudo apt update && yes | sudo apt full-upgrade"
 
 # Personal Exports
 
