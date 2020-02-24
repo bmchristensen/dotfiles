@@ -83,9 +83,9 @@ echo "
 
 "
 sudo apt update
-sudo apt install -y --install-suggests build-essential curl git dconf-cli uuid-runtime wget \
-ctags vim-scripts neovim default-jre default-jdk python python3 python-pip python3-pip \
-python-neovim python3-neovim xclip yarn golang-go apt-transport-https ca-certificates \
+sudo apt install -y build-essential curl git dconf-cli uuid-runtime wget \
+ctags neovim vim-plug vim-scripts python-neovim python3-neovim default-jre default-jdk python \
+python3 python-pip python3-pip xclip yarn golang-go apt-transport-https ca-certificates \
 software-properties-common nginx mysql-server php-fpm php-mysql autoconf \
 bison libssl-dev libyaml-dev libreadline-dev zlib1g-dev libncurses5-dev docker.io \
 libxss1 libappindicator1 libindicator7
@@ -111,15 +111,15 @@ echo "
 
 "
 
-service nginx restart
+sudo service nginx restart
 
 echo "
 
   <---- Setting docker to run on start  ---->
 
 "
-systemctl start docker
-systemctl enable docker
+sudo systemctl start docker
+sudo systemctl enable docker
 
 echo "
 
