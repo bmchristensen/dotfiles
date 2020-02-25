@@ -283,3 +283,21 @@ cd Programs
 wget "https://downloads.slack-edge.com/linux_releases/slack-desktop-4.3.2-amd64.deb"
 sudo apt install -y ./slack*.deb
 cd
+
+echo "
+  -----------
+  Cleaning up
+  -----------
+
+"
+
+cd Programs
+rm -rf *
+cd
+rm -rf dotfiles
+
+echo "
+  ---------------------
+  System Setup Complete
+  ---------------------
+"
