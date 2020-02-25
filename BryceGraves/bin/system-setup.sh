@@ -226,10 +226,7 @@ echo "
 echo "<---- Chrome ---->
 
 "
-cd Programs
-wget -O google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt install -y ./google-chrome.deb
-cd
+sudo apt install -y google-chrome-stable
 
 echo "<---- Purging firefox ---->
 
