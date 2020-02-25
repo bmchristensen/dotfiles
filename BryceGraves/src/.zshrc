@@ -73,6 +73,7 @@ plugins=(
   ruby
   taskwarrior
   zsh-autosuggestions
+  zsh-nvm
   zsh-syntax-highlighting
 )
 
