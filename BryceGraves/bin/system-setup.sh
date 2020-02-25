@@ -83,12 +83,11 @@ echo "
 
 "
 sudo apt update
-sudo apt install -y build-essential curl git dconf-cli uuid-runtime wget \
-ctags neovim vim-scripts python-neovim python3-neovim default-jre default-jdk python \
-python3 python-pip python3-pip xclip yarn golang-go apt-transport-https ca-certificates \
-software-properties-common nginx mysql-server php-fpm php-mysql autoconf \
-bison libssl-dev libyaml-dev libreadline-dev zlib1g-dev libncurses5-dev docker.io \
-libxss1 libappindicator1 libindicator7
+sudo apt install -y apt-transport-https autoconf bison build-essential ca-certificates ctags curl dconf-cli \
+default-jdk default-jre docker.io git golang-go libappindicator1 libindicator7 libncurses5-dev libreadline-dev \
+libssl-dev libxss1 libyaml-dev mysql-server neovim nginx php-fpm php-mysql postgresql postgresql-server-dev-10 \
+python python-neovim python-pip python3 python3-neovim python3-pip software-properties-common uuid-runtime \
+vim-scripts wget xclip yarn zlib1g-dev
 
 echo "
 
