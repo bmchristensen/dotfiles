@@ -179,11 +179,20 @@ git clone https://github.com/rbenv/rbenv-default-gems.git ~/.rbenv/plugins/rbenv
 echo "source ~/.zshrc; rbenv alias --auto; rbenv install 2.5.1; rbenv install 2.6.5; exit" | zsh
 
 echo "
+  --------------------------------
+  Setting up nvm and node with zsh
+  --------------------------------
+
+"
+
+
+echo "
   ----------------------------------------
   Setting up nerd fonts used for oh-my-zsh
   ----------------------------------------
 
 "
+echo "source ~/.zshrc; nvm install node; exit" | zsh
 
 cd Programs
 git clone https://github.com/ryanoasis/nerd-fonts.git
