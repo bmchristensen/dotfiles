@@ -92,25 +92,9 @@ libxss1 libappindicator1 libindicator7
 
 echo "
 
-  <---- Setting up rbenv ---->
-
-"
-
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-git clone https://github.com/tpope/rbenv-aliases.git ~/.rbenv/plugins/rbenv-aliases
-rbenv alias --auto
-git clone https://github.com/rbenv/rbenv-default-gems.git ~/.rbenv/plugins/rbenv-default-gems
-rbenv install 2.5.1
-rbenv install 2.6.5
-
-
-echo "
-
   <---- Finalizing nginx install ---->
 
 "
-
 sudo service nginx restart
 
 echo "
@@ -126,7 +110,6 @@ echo "
   <---- Adding javascript linters to user root ---->
 
 "
-
 cp dotfiles/BryceGraves/src/.eslintrc .eslintrc
 cp dotfiles/BryceGraves/src/.prettierrc .prettierrc
 
@@ -137,7 +120,6 @@ echo "
   --------------------
 
 "
-
 sudo apt install -y --install-suggests python-pygments zsh
 echo "Y" | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 cp dotfiles/BryceGraves/src/.zshrc .zshrc
@@ -184,6 +166,20 @@ echo "
 "
 
 echo "
+  -------------------------
+  Setting up rbenv with zsh
+  -------------------------
+
+"
+
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+git clone https://github.com/tpope/rbenv-aliases.git ~/.rbenv/plugins/rbenv-aliases
+git clone https://github.com/rbenv/rbenv-default-gems.git ~/.rbenv/plugins/rbenv-default-gems
+
+echo "source ~/.zshrc; rbenv alias --auto; rbenv install 2.5.1; rbenv install 2.6.5; exit" | zsh
+
+echo "
   ----------------------------------------
   Setting up nerd fonts used for oh-my-zsh
   ----------------------------------------
@@ -197,6 +193,13 @@ cd nerd-fonts
 cd
 
 echo "
+  -----------------------------------------
+  Done setting up and installing nerd fonts
+  -----------------------------------------
+
+"
+
+echo "
   ---------------------------
   Setting up terminal styling
   ---------------------------
@@ -204,13 +207,6 @@ echo "
 "
 
 echo "ALL" | bash -c  "$(wget -qO- https://git.io/vQgMr)"
-
-echo "
-  -----------------------------------------
-  Done setting up and installing nerd fonts
-  -----------------------------------------
-
-"
 
 echo "
   -------------------------------
@@ -223,8 +219,8 @@ echo "<---- Chrome ---->
 
 "
 cd Programs
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt install -y ./google-chrome*.deb
+wget -O google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install -y ./google-chrome.deb
 cd
 
 echo "<---- Purging firefox ---->
