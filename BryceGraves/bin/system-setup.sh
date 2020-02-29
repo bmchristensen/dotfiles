@@ -166,7 +166,7 @@ echo "
 
 echo "
   -------------------------
-  Setting up rbenv with zsh
+  Setting up nvm, node, and rbenv with zsh
   -------------------------
 
 "
@@ -226,7 +226,10 @@ echo "
 echo "<---- Chrome ---->
 
 "
-sudo apt install -y google-chrome-stable
+cd Programs
+wget -O google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install -y ./google-chrome.deb
+cd
 
 echo "<---- Purging firefox ---->
 
