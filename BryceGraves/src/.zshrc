@@ -1,5 +1,5 @@
 # Path to oh-my-zsh installation.
-export ZSH="/home/gravebry/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Declare mode
 POWERLEVEL9K_MODE='nerdfont-complete'
