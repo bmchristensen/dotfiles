@@ -41,7 +41,7 @@ echo "
 cd
 mkdir Code Programs Stolen
 cd Stolen
-mkdir books movies recent shows
+mkdir Books Movies Recent Shows
 cd
 
 echo "
