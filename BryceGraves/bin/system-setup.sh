@@ -83,7 +83,7 @@ echo "
 
 "
 sudo apt update
-sudo apt install -y apt-transport-https autoconf bison build-essential ca-certificates ctags curl dconf-cli \
+sudo apt install -y apt-transport-https autoconf awscli bison build-essential ca-certificates ctags curl dconf-cli \
 default-jdk default-jre docker.io git golang-go libappindicator1 libindicator7 libncurses5-dev libreadline-dev \
 libssl-dev libxss1 libyaml-dev mysql-server neovim nginx php-fpm php-mysql postgresql postgresql-server-dev-10 \
 python python-neovim python-pip python3 python3-neovim python3-pip software-properties-common uuid-runtime \
