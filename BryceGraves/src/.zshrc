@@ -16,6 +16,9 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs go_version rspec_stat
 # Declare theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+# Add this line to use code-insiders instead of code
+VSCODE=code-insiders
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -62,17 +65,35 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+# I ADD WHAT I WANT REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
 plugins=(
+  aws
   battery
+  bundler
   colored-man-pages
   colorize
   common-aliases
+  debian
+  docker
+  docker-compose
+  fzf
+  gem
   git
+  golang
   nvm
+  postgres
+  rails
   rbenv
   ruby
+  safe-paste
+  sudo
   taskwarrior
+  vscode
+  yarn
+  zsh_reload
   zsh-autosuggestions
+  zsh-interactive-cd
+  zsh-navigation-tools
   zsh-nvm
   zsh-syntax-highlighting
 )
@@ -111,11 +132,7 @@ alias -g m="make"
 alias -g mc="make clean"
 alias -g ssh-osu="ssh gravebry@flip.engr.oregonstate.edu"
 alias -g ssh-os1="ssh gravebry@os1.engr.oregonstate.edu"
-alias -g opdir="nemo"
 alias -g tl="task list"
-alias -g code="code-insiders"
-alias -g co="code ."
-alias -g fu="sudo apt update && yes | sudo apt full-upgrade"
 
 # Personal Exports
 
@@ -133,3 +150,6 @@ export NVM_DIR="/home/gravebry/.nvm"
 
 # added by travis gem
 [ -f /home/gravebry/.travis/travis.sh ] && source /home/gravebry/.travis/travis.sh
+
+# Add fzf for some real fancy zsh cding
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
