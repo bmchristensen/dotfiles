@@ -91,6 +91,14 @@ vim-scripts wget xclip yarn zlib1g-dev
 
 echo "
 
+  <---- Finalizing python install ---->
+
+"
+pip install setuptools
+pip3 install setuptools
+
+echo "
+
   <---- Finalizing nginx install ---->
 
 "
