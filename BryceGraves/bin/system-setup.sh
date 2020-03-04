@@ -94,8 +94,8 @@ echo "
   <---- Finalizing python install ---->
 
 "
-pip install setuptools
-pip3 install setuptools
+pip install setuptools wheel
+pip3 install setuptools wheel
 
 echo "
 
