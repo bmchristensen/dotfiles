@@ -1,0 +1,438 @@
+aws:
+  - asp [<profile>]: sets $AWS_PROFILE and $AWS_DEFAULT_PROFILE (legacy) to <profile>.
+    It also sets $AWS_EB_PROFILE to <profile> for the Elastic Beanstalk CLI.
+    Run asp without arguments to clear the profile.
+  - agp: gets the current value of $AWS_PROFILE.
+  - aws_change_access_key: changes the AWS access key of a profile.
+  - aws_profiles: lists the available profiles in the $AWS_CONFIG_FILE (default: ~/.aws/config).
+    Used to provide completion for the asp function.
+bundler:
+  - be: aliased to bundle exec. It also supports aliases (if rs is rails server, be rs will bundle-exec rails server).
+  - bl: aliased to bundle list
+  - bp: aliased to bundle package
+  - bo: aliased to bundle open
+  - bout: aliased to bundle outdated
+  - bu: aliased to bundle update
+  - bi: aliased to bundle install --jobs=<cpu core count> (only for bundler >= 1.4.0)
+common-aliases:
+  ls commands:
+    Alias: l,    Command: ls -lFh,    Description: List files as a long list, show size, type, human-readable
+    Alias: la,   Command: ls -lAFh,   Description: List almost all files as a long list show size, type, human-readable
+    Alias: lr,   Command: ls -tRFh,   Description: List files recursively sorted by date, show type, human-readable
+    Alias: lt,   Command: ls -ltFh,   Description: List files as a long list sorted by date, show type, human-readable
+    Alias: ll,   Command: ls -l,      Description: List files as a long list
+    Alias: ldot, Command: ls -ld .*,  Description: List dot files as a long list
+    Alias: lS,   Command: ls -1FSsh,  Description: List files showing only size and name sorted by size
+    Alias: lart, Command: ls -1Fcart, Description: List all files sorted in reverse of create/modification time (oldest first)
+    Alias: lrt,  Command: ls -1Fcrt,  Description: List files sorted in reverse of create/modification time(oldest first)
+  file handling:
+    Alias: rm,               Command: rm -i,      Description: Remove a file
+    Alias: cp,               Command: cp -i,      Description: Copy a file
+    Alias: mv,               Command: mv -i,      Description: Move a file
+    Alias: zshrc ${=EDITOR}, Command: ~/.zshrc,   Description: Quickly access the ~/.zshrc file
+    Alias: dud,              Command: du -d 1 -h, Description: Display the size of files at depth 1 in current location in human-readable form
+    Alias: duf,              Command: du -sh,     Description: Display the size of files in current location in human-readable form
+    Alias: t,                Command: tail -f,    Description: Shorthand for tail which outputs the last part of a file
+  find and grep:
+    Alias: fd,    Command: find . -type d -name,                             Description: Find a directory with the given name
+    Alias: ff,    Command: find . -type f -name,                             Description: Find a file with the given name
+    Alias: grep,  Command: grep --color,                                     Description: Searches for a query string
+    Alias: sgrep, Command: grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS}, Description: Useful for searching within files
+  other aliases:
+    Alias: h,        Command: history,         Description: Lists all recently used commands
+    Alias: hgrep,    Command: fc -El 0 | grep, Description: Searches for a word in the list of previously used commands
+    Alias: help,     Command: man,             Description: Opens up the man page for a command
+    Alias: p,        Command: ps -f,           Description: Displays currently executing processes
+    Alias: sortnr,   Command: sort -n -r,      Description: Used to sort the lines of a text file
+    Alias: unexport, Command: unset,           Description: Used to unset an environment variable
+  global aliases:
+    Alisa: H,   Command: | head,                   Description: Pipes output to head which outputs the first part of a file
+    Alisa: T,   Command: | tail,                   Description: Pipes output to tail which outputs the last part of a file
+    Alisa: G,   Command: | grep,                   Description: Pipes output to grep to search for some word
+    Alisa: L,   Command: | less,                   Description: Pipes output to less, useful for paging
+    Alisa: M,   Command: | most,                   Description: Pipes output to more, useful for paging
+    Alisa: LL,  Command: 2>&1 | less,              Description: Writes stderr to stdout and passes it to less
+    Alisa: CA,  Command: 2>&1 | cat -A,            Description: Writes stderr to stdout and passes it to cat
+    Alisa: NE,  Command: 2 > /dev/null,            Description: Silences stderr
+    Alisa: NUL, Command: > /dev/null 2>&1,         Description: Silences both stdout and stderr
+    Alisa: P,   Command: 2>&1| pygmentize -l pytb, Description: Writes stderr to stdout and passes it to pygmentize
+  file extension aliases:
+    Alias: pdf,  Command: acroread, Description: Opens up a document using acroread
+    Alias: ps,   Command: gv,       Description: Opens up a .ps file using gv
+    Alias: dvi,  Command: xdvi,     Description: Opens up a .dvi file using xdvi
+    Alias: chm,  Command: xchm,     Description: Opens up a .chm file using xchm
+    Alias: djvu, Command: djview,   Description: Opens up a .djvu file using djview
+  listing files inside a packed file:
+    Alias: zip, Command: unzip -l, Description: Lists files inside a .zip file
+    Alias: rar, Command: unrar l,  Description: Lists files inside a .rar file
+    Alias: tar, Command: tar tf,   Description: Lists files inside a .tar file
+    Alias: tar, Command: gz echo,  Description: Lists files inside a .tar.gz file
+    Alias: ace, Command: unace l,  Description: Lists files inside a .ace file
+  some other features:
+    - Opens urls in terminal using browser specified by the variable $BROWSER
+    - Opens C, C++, Tex and text files using editor specified by the variable $EDITOR
+    - Opens images using image viewer specified by the variable $XIVIEWER
+    - Opens videos and other media using mplayer
+debian:
+  common aliases:
+    Alias: age,  Command: apt-get,                                                              Description: Command line tool for handling packages
+    Alias: api,  Command: aptitude,                                                             Description: Same functionality as apt-get, provides extra options
+    Alias: acs,  Command: apt-cache search,                                                     Description: Command line tool for searching apt software package cache
+    Alias: aps,  Command: aptitude search,                                                      Description: Searches installed packages using aptitude
+    Alias: as,   Command: aptitude -F '* %p -> %d \n(%v/%V)' --no-gui --disable-columns search, Description: Print searched packages using a custom format
+    Alias: afs,  Command: apt-file search --regexp,                                             Description: Search file in packages
+    Alias: asrc, Command: apt-get source,                                                       Description: Fetch source packages through apt-get
+    Alias: app,  Command: apt-cache policy,                                                     Description: Displays priority of package sources
+  superuser operations aliases:
+    Alias: aac,    Command: sudo $apt_pref autoclean,                                                          Description: Clears out the local repository of retrieved package files
+    Alias: abd,    Command: sudo $apt_pref build-dep,                                                          Description: Installs all dependencies for building packages
+    Alias: ac,     Command: sudo $apt_pref clean,                                                              Description: Clears out the local repository of retrieved package files except lock files
+    Alias: ad,     Command: sudo $apt_pref update,                                                             Description: Updates the package lists for upgrades for packages
+    Alias: adg,    Command: sudo $apt_pref update && sudo $apt_pref $apt_upgr,                                 Description: Update and upgrade packages
+    Alias: adu,    Command: sudo $apt_pref update && sudo $apt_pref dist-upgrade,                              Description: Smart upgrade that handles dependencies
+    Alias: afu,    Command: sudo apt-file update,                                                              Description: Update the files in packages
+    Alias: au,     Command: sudo $apt_pref $apt_upgr,                                                          Description: Install package upgrades
+    Alias: ai,     Command: sudo $apt_pref install,                                                            Description: Command-line tool to install package
+    Alias: ail,    Command: sed -e 's/ */ /g' -e 's/ *//' | cut -s -d ' ' -f 1 | xargs sudo $apt_pref install, Description: Install all packages given on the command line while using only the first word of each line
+    Alias: ap,     Command: sudo $apt_pref purge,                                                              Description: Removes packages along with configuration files
+    Alias: ar,     Command: sudo $apt_pref remove,                                                             Description: Removes packages, keeps the configuration files
+    Alias: ads,    Command: sudo apt-get dselect-upgrade,                                                      Description: Installs packages from list and removes all not in the list
+    Alias: dia,    Command: sudo dpkg -i ./*.deb,                                                              Description: Install all .deb files in the current directory
+    Alias: di,     Command: sudo dpkg -i,                                                                      Description: Install all .deb files in the current directory
+    Alias: kclean, Command: sudo aptitude remove -P ?and(~i~nlinux-(ima|hea) ?not(~n$(uname -r))),             Description: Remove ALL kernel images and headers EXCEPT the one in use
+  aliases - commands using su
+    Alias: aac, Command: su -ls "$apt_pref autoclean" root
+    Alias: ac,  Command: su -ls "$apt_pref clean" root
+    Alias: ad,  Command: su -lc "$apt_pref update" root
+    Alias: adg, Command: su -lc "$apt_pref update && aptitude $apt_upgr" root
+    Alias: adu, Command: su -lc "$apt_pref update && aptitude dist-upgrade" root
+    Alias: afu, Command: su -lc "apt-file update"
+    Alias: au,  Command: su -lc "$apt_pref $apt_upgr" root
+    Alias: dia, Command: su -lc "dpkg -i ./*.deb" root
+  miscellaneous aliases:
+    Alias: allpkgs, Command: aptitude search -F "%p" --disable-columns ~i, Description: Display all installed packages
+    Alias: mydeb,   Command: time dpkg-buildpackage -rfakeroot -us -uc,    Description: Create a basic .deb package
+  functions:
+    Alias: apt-copy,          Command: Create a simple script that can be used to 'duplicate' a system
+    Alias: apt-history,       Command: Displays apt history for a command
+    Alias: kerndeb,           Command: Builds kernel packages
+    Alias: apt-list-packages, Command: List packages by size
+docker-compose:
+  aliases:
+    Alias: dco,       Command: docker-compose,         Description: Docker-compose main command
+    Alias: dcb,       Command: docker-compose build,   Description: Build containers
+    Alias: dce,       Command: docker-compose exec,    Description: Execute command inside a container
+    Alias: dcps,      Command: docker-compose ps,      Description: List containers
+    Alias: dcrestart, Command: docker-compose restart, Description: Restart container
+    Alias: dcrm,      Command: docker-compose rm,      Description: Remove container
+    Alias: dcr,       Command: docker-compose run,     Description: Run a command in container
+    Alias: dcstop,    Command: docker-compose stop,    Description: Stop a container
+    Alias: dcup,      Command: docker-compose up,      Description: Build, (re)create, start, and attach to containers for a service
+    Alias: dcupd,     Command: docker-compose up -d,   Description: Same as dcup, but starts as daemon
+    Alias: dcdn,      Command: docker-compose down,    Description: Stop and remove containers
+    Alias: dcl,       Command: docker-compose logs,    Description: Show logs of container
+    Alias: dclf,      Command: docker-compose logs -f, Description: Show logs and follow output
+    Alias: dcpull,    Command: docker-compose pull,    Description: Pull image of a service
+    Alias: dcstart,   Command: docker-compose start,   Description: Start a container
+docker-machine:
+  usage:
+    docker-vm
+      Will create a docker-machine with the name "dev" (required only once) To create a second machine call "docker-vm foobar" or pass any other name
+    docker-up
+      This will start your "dev" docker-machine (if necessary) and set it as the active one To start a named machine use "docker-up foobar"
+    docker-switch dev
+      Use this to activate a running docker-machine (or to switch between multiple machines) You need to call either this or docker-up when opening a new terminal
+    docker-stop
+      This will stop your "dev" docker-machine To stop a named machine use "docker-stop foobar"
+gem:
+  aliases:
+    Alias: gemb,                 Command: gem build *.gemspec,         Description: Build a gem from a gemspec
+    Alias: gemp,                 Command: gem push *.gem,              Description: Push a gem up to the gem server
+    Alias: gemy [gem] [version], Command: gem yank [gem] -v [version], Description: Remove a pushed gem version from the index
+git:
+  aliases:
+    Alias: g,         Command: git
+    Alias: ga,        Command: git add
+    Alias: gaa,       Command: git add --all
+    Alias: gapa,      Command: git add --patch
+    Alias: gau,       Command: git add --update
+    Alias: gav,       Command: git add --verbose
+    Alias: gap,       Command: git apply
+    Alias: gb,        Command: git branch
+    Alias: gba,       Command: git branch -a
+    Alias: gbd,       Command: git branch -d
+    Alias: gbda,      Command: git branch --no-color --merged | command grep -vE "^(+
+    Alias: gbD,       Command: git branch -D
+    Alias: gbl,       Command: git blame -b -w
+    Alias: gbnm,      Command: git branch --no-merged
+    Alias: gbr,       Command: git branch --remote
+    Alias: gbs,       Command: git bisect
+    Alias: gbsb,      Command: git bisect bad
+    Alias: gbsg,      Command: git bisect good
+    Alias: gbsr,      Command: git bisect reset
+    Alias: gbss,      Command: git bisect start
+    Alias: gc,        Command: git commit -v
+    Alias: gc,        Command: git commit -v --amend
+    Alias: gcn,       Command: git commit -v --no-edit --amend
+    Alias: gca,       Command: git commit -v -a
+    Alias: gca,       Command: git commit -v -a --amend
+    Alias: gcan,      Command: git commit -v -a --no-edit --amend
+    Alias: gcans,     Command: git commit -v -a -s --no-edit --amend
+    Alias: gcam,      Command: git commit -a -m
+    Alias: gcsm,      Command: git commit -s -m
+    Alias: gcb,       Command: git checkout -b
+    Alias: gcf,       Command: git config --list
+    Alias: gcl,       Command: git clone --recurse-submodules
+    Alias: gclean,    Command: git clean -id
+    Alias: gpristine, Command: git reset --hard && git clean -dffx
+    Alias: gcm,       Command: git checkout master
+    Alias: gcd,       Command: git checkout develop
+    Alias: gcmsg,     Command: git commit -m
+    Alias: gco,       Command: git checkout
+    Alias: gcount,    Command: git shortlog -sn
+    Alias: gcp,       Command: git cherry-pick
+    Alias: gcpa,      Command: git cherry-pick --abort
+    Alias: gcpc,      Command: git cherry-pick --continue
+    Alias: gcs,       Command: git commit -S
+    Alias: gd,        Command: git diff
+    Alias: gdca,      Command: git diff --cached
+    Alias: gdcw,      Command: git diff --cached --word-diff
+    Alias: gdct,      Command: git describe --tags $(git rev-list --tags --max-count=1)
+    Alias: gds,       Command: git diff --staged
+    Alias: gdt,       Command: git diff-tree --no-commit-id --name-only -r
+    Alias: gdv,       Command: git diff -w $@ | view -
+    Alias: gdw,       Command: git diff --word-diff
+    Alias: gf,        Command: git fetch
+    Alias: gfa,       Command: git fetch --all --prune
+    Alias: gfg,       Command: git ls-files | grep
+    Alias: gfo,       Command: git fetch origin
+    Alias: gg,        Command: git gui citool
+    Alias: gga,       Command: git gui citool --amend
+    Alias: ggf,       Command: git push --force origin $(current_branch)
+    Alias: ggfl,      Command: git push --force-with-lease origin $(current_branch)
+    Alias: ggl,       Command: git pull origin $(current_branch)
+    Alias: ggp,       Command: git push origin $(current_branch)
+    Alias: ggpnp,     Command: ggl && ggp
+    Alias: ggpull,    Command: git pull origin "$(git_current_branch)"
+    Alias: ggpur,     Command: ggu
+    Alias: ggpush,    Command: git push origin "$(git_current_branch)"
+    Alias: ggsup,     Command: git branch --set-upstream-to=origin/$(git_current_branch)
+    Alias: ggu,       Command: git pull --rebase origin $(current_branch)
+    Alias: gpsup,     Command: git push --set-upstream origin $(git_current_branch)
+    Alias: ghh,       Command: git help
+    Alias: gignore,   Command: git update-index --assume-unchanged
+    Alias: gignored,  Command: git ls-files -v | grep "^[[:lower:]]"
+    Alias: git,       Command: svn-dcommit-pushgit svn dcommit && git push github master:svntrunk
+    Alias: gk,        Command: gitk --all --branches
+    Alias: gke,       Command: gitk --all $(git log -g --pretty=%h)
+    Alias: gl,        Command: git pull
+    Alias: glg,       Command: git log --stat
+    Alias: glgp,      Command: git log --stat -p
+    Alias: glgg,      Command: git log --graph
+    Alias: glgga,     Command: git log --graph --decorate --all
+    Alias: glgm,      Command: git log --graph --max-count=10
+    Alias: glo,       Command: git log --oneline --decorate
+    Alias: glol,      Command: git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    Alias: glols,     Command: git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --stat
+    Alias: glod,      Command: git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'
+    Alias: glods,     Command: git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short
+    Alias: glola,     Command: git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all
+    Alias: glog,      Command: git log --oneline --decorate --graph
+    Alias: gloga,     Command: git log --oneline --decorate --graph --all
+    Alias: glp,       Command: _git_log_prettily
+    Alias: gm,        Command: git merge
+    Alias: gmom,      Command: git merge origin/master
+    Alias: gmt,       Command: git mergetool --no-prompt
+    Alias: gmtvim,    Command: git mergetool --no-prompt --tool=vimdiff
+    Alias: gmum,      Command: git merge upstream/master
+    Alias: gma,       Command: git merge --abort
+    Alias: gp,        Command: git push
+    Alias: gpd,       Command: git push --dry-run
+    Alias: gpf,       Command: git push --force-with-lease
+    Alias: gpf,       Command: git push --force
+    Alias: gpoat,     Command: git push origin --all && git push origin --tags
+    Alias: gpu,       Command: git push upstream
+    Alias: gpv,       Command: git push -v
+    Alias: gr,        Command: git remote
+    Alias: gra,       Command: git remote add
+    Alias: grb,       Command: git rebase
+    Alias: grba,      Command: git rebase --abort
+    Alias: grbc,      Command: git rebase --continue
+    Alias: grbd,      Command: git rebase develop
+    Alias: grbi,      Command: git rebase -i
+    Alias: grbm,      Command: git rebase master
+    Alias: grbs,      Command: git rebase --skip
+    Alias: grev,      Command: git revert
+    Alias: grh,       Command: git reset
+    Alias: grhh,      Command: git reset --hard
+    Alias: groh,      Command: git reset origin/$(git_current_branch) --hard
+    Alias: grm,       Command: git rm
+    Alias: grmc,      Command: git rm --cached
+    Alias: grmv,      Command: git remote rename
+    Alias: grrm,      Command: git remote remove
+    Alias: grs,       Command: git restore
+    Alias: grset,     Command: git remote set-url
+    Alias: grss,      Command: git restore --source
+    Alias: grt,       Command: cd "$(git rev-parse --show-toplevel || echo .)"
+    Alias: gru,       Command: git reset --
+    Alias: grup,      Command: git remote update
+    Alias: grv,       Command: git remote -v
+    Alias: gsb,       Command: git status -sb
+    Alias: gsd,       Command: git svn dcommit
+    Alias: gsh,       Command: git show
+    Alias: gsi,       Command: git submodule init
+    Alias: gsps,      Command: git show --pretty=short --show-signature
+    Alias: gsr,       Command: git svn rebase
+    Alias: gss,       Command: git status -s
+    Alias: gst,       Command: git status
+    Alias: gsta,      Command: git stash push
+    Alias: gsta,      Command: git stash save
+    Alias: gstaa,     Command: git stash apply
+    Alias: gstc,      Command: git stash clear
+    Alias: gstd,      Command: git stash drop
+    Alias: gstl,      Command: git stash list
+    Alias: gstp,      Command: git stash pop
+    Alias: gsts,      Command: git stash show --text
+    Alias: gstu,      Command: git stash --include-untracked
+    Alias: gstall,    Command: git stash --all
+    Alias: gsu,       Command: git submodule update
+    Alias: gsw,       Command: git switch
+    Alias: gswc,      Command: git switch -c
+    Alias: gts,       Command: git tag -s
+    Alias: gtv,       Command: git tag | sort -V
+    Alias: gtl,       Command: gtl(){ git tag --sort=-v:refname -n -l ${1}* }; noglob gtl
+    Alias: gunignore, Command: git update-index --no-assume-unchanged
+    Alias: gunwip,    Command: git log -n 1 | grep -q -c "--wip--" && git reset HEAD~1
+    Alias: gup,       Command: git pull --rebase
+    Alias: gupv,      Command: git pull --rebase -v
+    Alias: gupa,      Command: git pull --rebase --autostash
+    Alias: gupav,     Command: git pull --rebase --autostash -v
+    Alias: glum,      Command: git pull upstream master
+    Alias: gwch,      Command: git whatchanged -p --abbrev-commit --pretty=medium
+    Alias: gwip,      Command: git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign -m "--wip-- [skip ci]"
+  functions:
+    Command: grename <old> <new>,    Description: Rename old branch to new, including in origin remote
+    Command: current_branch,         Description: Return the name of the current branch
+    Command: git_current_user_name,  Description: Returns the user.name config value
+    Command: git_current_user_email, Description: Returns the user.email config valu
+golang:
+  aliases:
+    Alias: gob,  Command: go build,       Description: Build your code
+    Alias: goc,  Command: go clean,       Description: Removes object files from package source directories
+    Alias: god,  Command: go doc,         Description: Prints documentation comments
+    Alias: gof,  Command: go fmt,         Description: Gofmt formats (aligns and indents) Go programs.
+    Alias: gofa, Command: go fmt ./...,   Description: Run go fmt for all packages in current directory, recursively
+    Alias: gog,  Command: go get,         Description: Downloads packages and then installs them to $GOPATH
+    Alias: goi,  Command: go install,     Description: Compiles and installs packages to $GOPATH
+    Alias: gol,  Command: go list,        Description: Lists Go packages
+    Alias: gom,  Command: go mod,         Description: Access to operations on modules
+    Alias: gop,  Command: cd $GOPATH,     Description: Takes you to $GOPATH
+    Alias: gopb, Command: cd $GOPATH/bin, Description: Takes you to $GOPATH/bin
+    Alias: gops, Command: cd $GOPATH/src, Description: Takes you to $GOPATH/src
+    Alias: gor,  Command: go run,         Description: Compiles and runs your code
+    Alias: got,  Command: go test,        Description: Runs tests
+    Alias: gov,  Command: go vet,         Description: Vet examines Go source code and reports suspicious constructs
+rails:
+  rails aliases:
+    Alias: rc,   Command: rails console,            Description: Interact with your Rails app from the CLI
+    Alias: rcs,  Command: rails console --sandbox,  Description: Test code in a sandbox, without changing any data
+    Alias: rd,   Command: rails destroy,            Description: Undo a generate operation
+    Alias: rdb,  Command: rails dbconsole,          Description: Interact with your db from the console
+    Alias: rgen, Command: rails generate,           Description: Generate boilerplate code
+    Alias: rgm,  Command: rails generate migration, Description: Generate a db migration
+    Alias: rp,   Command: rails plugin,             Description: Run a Rails plugin command
+    Alias: ru,   Command: rails runner,             Description: Run Ruby code in the context of Rails
+    Alias: rs,   Command: rails server,             Description: Launch a web server
+    Alias: rsd,  Command: rails server --debugger,  Description: Launch a web server with debugger
+    Alias: rsp,  Command: rails server --port,      Description: Launch a web server and specify the listening port
+  rake aliases:
+    Alias: rdm,   Command: rake db:migrate,               Description: Run pending db migrations
+    Alias: rdms,  Command: rake db:migrate:status,        Description: Show current db migration status
+    Alias: rdmtc, Command: rake db:migrate db:test:clone, Description: Run pending migrations and clone db into test database
+    Alias: rdr,   Command: rake db:rollback,              Description: Roll back the last migration
+    Alias: rdc,   Command: rake db:create,                Description: Create the database
+    Alias: rds,   Command: rake db:seed,                  Description: Seed the database
+    Alias: rdd,   Command: rake db:drop,                  Description: Delete the database
+    Alias: rdrs,  Command: rake db:reset,                 Description: Delete the database and set it up again
+    Alias: rdtc,  Command: rake db:test:clone,            Description: Clone the database into the test database
+    Alias: rdtp,  Command: rake db:test:prepare,          Description: Duplicate the db schema into your test database
+    Alias: rdsl,  Command: rake db:schema:load,           Description: Load the database schema
+    Alias: rlc,   Command: rake log:clear,                Description: Clear Rails logs
+    Alias: rn,    Command: rake notes,                    Description: Search for notes (FIXME, TODO) in code comments
+    Alias: rr,    Command: rake routes,                   Description: List all defined routes
+    Alias: rrg,   Command: rake routes | grep,            Description: List and filter the defined routes
+    Alias: rt,    Command: rake test,                     Description: Run Rails tests
+    Alias: rmd,   Command: rake middleware,               Description: Interact with Rails middlewares
+    Alias: rsts,  Command: rake stats,                    Description: Print code statistics
+  utility aliases:
+    Alias: devlog,  Command: tail -f log/development.log, Description: Show and follow changes to the development log
+    Alias: prodlog, Command: tail -f log/production.log,  Description: Show and follow changes to the production log
+    Alias: testlog, Command: tail -f log/test.log,        Description: Show and follow changes to the test log
+  environment settings:
+    Alias: RED, Command: RAILS_ENV=development, Description: Sets RAILS_ENV to development
+    Alias: REP, Command: RAILS_ENV=production,  Description: Sets RAILS_ENV to production
+    Alias: RET, Command: RAILS_ENV=test,        Description: Sets RAILS_ENV to test
+rbenv:
+  aliases:
+    Alias: rubies,  Command: rbenv versions,    Description: List the installed Ruby versions
+    Alias: gemsets, Command: rbenv gemset list, Description: List the existing gemsets
+ruby:
+  aliases:
+    Alias: rb,    Command: ruby,                                Description: The Ruby command
+    Alias: sgem,  Command: sudo gem,                            Description: Run sudo gem on the system ruby, not the active ruby
+    Alias: rfind, Command: find . -name "*.rb" | xargs grep -n, Description: Find ruby file
+    Alias: gin,   Command: gem install,                         Description: Install a gem into the local repository
+    Alias: gun,   Command: gem uninstall,                       Description: Uninstall gems from the local repository
+    Alias: gli,   Command: gem list,                            Description: Display gems installed locally
+vscode:
+  common aliases:
+    Alias: vsc,                   Command: code .,                       Description: Open the current folder in VS code
+    Alias: vsca dir,              Command: code --add dir,               Description: Add folder(s) to the last active window
+    Alias: vscd file file,        Command: code --diff file file,        Description: Compare two files with each other.
+    Alias: vscg file:line[:char], Command: code --goto file:line[:char], Description: Open a file at the path on the specified line and character position.
+    Alias: vscn,                  Command: code --new-window,            Description: Force to open a new window.
+    Alias: vscr,                  Command: code --reuse-window,          Description: Force to open a file or folder in the last active window.
+    Alias: vscw,                  Command: code --wait,                  Description: Wait for the files to be closed before returning.
+    Alias: vscu dir,              Command: code --user-data-dir dir,     Description: Specifies the directory that user data is kept in. Can be used to open multiple distinct instances of Code.
+  extensions aliases:
+    Alias: vsced dir,             Command: code --extensions-dir dir,                                      Description: Set the root path for extensions.
+    Alias: vscie id or vsix-path, Command: code --install-extension extension-id> or <extension-vsix-path, Description: Installs an extension.
+    Alias: vscue id or vsix-path, Command: code --uninstall-extension id or vsix-path,                     Description: Uninstalls an extension.
+  other options:
+    Alias: vscv,       Command: code --verbose,            Description: Print verbose output (implies --wait).
+    Alias: vscl level, Command: code --log level,          Description: Log level to use. Default is 'info'. Allowed values are 'critical', 'error', 'warn', 'info', 'debug', 'trace', 'off'.
+    Alias: vscde,      Command: code --disable-extensions, Description: Disable all installed extensions.
+yarn:
+  aliases:
+    Alias: y,    Command: yarn,                                    Description: The Yarn command
+    Alias: ya,   Command: yarn add,                                Description: Install a package in dependencies (package.json)
+    Alias: yad,  Command: yarn add --dev,                          Description: Install a package in devDependencies (package.json)
+    Alias: yap,  Command: yarn add --peer,                         Description: Install a package in peerDependencies (package.json)
+    Alias: yb,   Command: yarn build,                              Description: Run the build script defined in package.json
+    Alias: ycc,  Command: yarn cache clean,                        Description: Clean yarn's global cache of packages
+    Alias: yd,   Command: yarn dev,                                Description: Run the dev script defined in package.json
+    Alias: yga,  Command: yarn global add,                         Description: Install packages globally on your operating system
+    Alias: ygls, Command: yarn global list,                        Description: Lists global installed packages
+    Alias: ygrm, Command: yarn global remove,                      Description: Remove global installed packages from your OS
+    Alias: ygu,  Command: yarn global upgrade,                     Description: Upgrade packages installed globally to their latest version
+    Alias: yh,   Command: yarn help,                               Description: Show help for a yarn command
+    Alias: yi,   Command: yarn init,                               Description: Interactively creates or updates a package.json file
+    Alias: yin,  Command: yarn install,                            Description: Install dependencies defined in package.json
+    Alias: yln,  Command: yarn lint,                               Description: Run the lint script defined in package.json
+    Alias: yls,  Command: yarn list,                               Description: List installed packages
+    Alias: yout, Command: yarn outdated,                           Description: Check for outdated package dependencies
+    Alias: yp,   Command: yarn pack,                               Description: Create a compressed gzip archive of package dependencies
+    Alias: yrm,  Command: yarn remove,                             Description: Remove installed packages
+    Alias: yrun, Command: yarn run,                                Description: Run a defined package script
+    Alias: ys,   Command: yarn serve,                              Description: Start the dev server
+    Alias: yst,  Command: yarn start,                              Description: Run the start script defined in package.json
+    Alias: yt,   Command: yarn test,                               Description: Run the test script defined in package.json
+    Alias: ytc,  Command: yarn test --coverage,                    Description: Run the test script defined in package.json with coverage
+    Alias: yuc,  Command: yarn global upgrade && yarn cache clean, Description: Upgrade global packages and clean yarn's global cache
+    Alias: yui,  Command: yarn upgrade-interactive,                Description: Prompt for which outdated packages to upgrade
+    Alias: yup,  Command: yarn upgrade,                            Description: Upgrade packages to their latest version
+    Alias: yv,   Command: yarn version,                            Description: Update the version of your package
+    Alias: yw,   Command: yarn workspace,                          Description: Run a command within a single workspace.
+    Alias: yws,  Command: yarn workspaces,                         Description: Run a command within all defined workspaces.
+zsh_reload:
+  Alias: src, Description: reload shell source
