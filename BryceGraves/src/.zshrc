@@ -74,14 +74,15 @@ plugins=(
   colorize
   common-aliases
   debian
+  dircycle
   docker
   docker-compose
+  docker-machine
   fzf
   gem
   git
   golang
   nvm
-  postgres
   rails
   rbenv
   ruby
