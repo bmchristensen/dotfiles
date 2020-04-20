@@ -86,7 +86,8 @@ plugins=(
   rails
   rbenv
   ruby
-  safe-paste
+  # TODO: work on fixing safe paste breaking sub-string suggestions and pr it
+  # safe-paste
   sudo
   taskwarrior
   vscode
