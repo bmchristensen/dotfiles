@@ -152,6 +152,3 @@ export NVM_DIR="/home/gravebry/.nvm"
 
 # added by travis gem
 [ -f /home/gravebry/.travis/travis.sh ] && source /home/gravebry/.travis/travis.sh
-
-# Add fzf for some real fancy zsh cding
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
