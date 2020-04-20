@@ -3,11 +3,6 @@
 # Automated System Setup
 # ----------------------
 
-# TODO:
-# - [] add message about what I still need to do post update
-# - [] add colored messages
-# - [] move installs to different functions
-
 echo "
   ================================
   Starting Automated System Setup!
