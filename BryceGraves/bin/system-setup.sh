@@ -61,28 +61,77 @@ echo "
 
 echo "
 
-  <---- Yarn ---->
-"
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-
-echo "
-
   <---- Golang ---->
 "
 sudo add-apt-repository -y ppa:longsleep/golang-backports
 
 echo "
 
-  <---- Installing all packages ---->
+  <---- Starting package installs and purges ---->
 
 "
 sudo apt update
-sudo apt install -y apt-transport-https autoconf awscli bison build-essential ca-certificates ctags curl dconf-cli \
-default-jdk default-jre docker.io git golang-go libappindicator1 libindicator7 libncurses5-dev libreadline-dev \
-libssl-dev libxss1 libyaml-dev mysql-server neovim nginx php-fpm php-mysql postgresql postgresql-server-dev-10 \
-python python-neovim python-pip python3 python3-neovim python3-pip software-properties-common uuid-runtime \
-vim-scripts wget xclip yarn zlib1g-dev
+
+echo "
+
+  <---- Purging unwanted preinstalls ---->
+
+"
+sudo apt purge -y vim
+sudo apt purge -y firefox
+
+echo "
+
+  <---- AWS ---->
+
+"
+sudo apt install -y awscli
+
+echo "
+
+  <---- Utils ---->
+
+"
+sudo apt install -y build-essential
+sudo apt install -y fzf
+sudo apt install -y software-properties-common
+sudo apt install -y curl wget xclip
+
+echo "
+
+  <---- Git ---->
+
+"
+sudo apt install -y git
+
+echo "
+
+  <---- Python and Pip ---->
+
+"
+sudo apt install -y python python3
+sudo apt install -y python-pip python3-pip
+
+echo "
+
+  <---- Neovim ---->
+
+"
+sudo apt install -y neovim
+
+echo "
+
+  <---- Golang ---->
+
+"
+sudo apt install -y golang-go
+
+echo "
+
+  <---- Java jdk and jre ---->
+
+"
+sudo apt install -y default-jdk default-jre
 
 echo "
 
@@ -91,21 +140,6 @@ echo "
 "
 pip install setuptools wheel
 pip3 install setuptools wheel
-
-echo "
-
-  <---- Finalizing nginx install ---->
-
-"
-sudo service nginx restart
-
-echo "
-
-  <---- Setting docker to run on start  ---->
-
-"
-sudo systemctl start docker
-sudo systemctl enable docker
 
 echo "
 
@@ -168,28 +202,9 @@ echo "
 "
 
 echo "
-  ----------------------------------
-  Installing fzf used by zsh plugins
-  ----------------------------------
-
-"
-
-cd Programs
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
-cd
-
-echo "
-  ---------------
-  Done adding fzf
-  ---------------
-
-"
-
-echo "
-  ----------------------------------------
-  Setting up nvm, node, and rbenv with zsh
-  ----------------------------------------
+  --------------------------------------------
+  Setting up nvm,node,rbenv, and yarn with zsh
+  --------------------------------------------
 
 "
 
@@ -198,7 +213,7 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 git clone https://github.com/tpope/rbenv-aliases.git ~/.rbenv/plugins/rbenv-aliases
 git clone https://github.com/rbenv/rbenv-default-gems.git ~/.rbenv/plugins/rbenv-default-gems
 
-echo "source ~/.zshrc; rbenv alias --auto; rbenv install 2.5.1; rbenv install 2.6.5; exit" | zsh
+echo "source ~/.zshrc; rbenv alias --auto; rbenv install 2.5.1; rbenv install 2.6.5; sudo npm install -g yarn; exit" | zsh
 
 echo "
   --------------------------------
@@ -253,11 +268,6 @@ wget -O google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stabl
 sudo apt install -y ./google-chrome.deb
 cd
 
-echo "<---- Purging firefox ---->
-
-"
-sudo apt purge -y firefox
-
 echo "<---- VLC ---->
 
 "
@@ -293,9 +303,11 @@ echo "<---- Telegram ---->
 
 "
 
-sudo apt install -y telegram-desktop
-
-
+wget -O- https://telegram.org/dl/desktop/linux | sudo tar xJ -C ./Programs
+./Programs/Telegram/Telegram &
+PID=$!
+sleep 1
+kill $PID
 
 echo "<---- Spotify ---->
 
