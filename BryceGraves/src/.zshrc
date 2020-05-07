@@ -147,8 +147,8 @@ export PATH="$PATH:$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$HOME/.rbenv/bin:/sn
 eval "$(rbenv init -)"
 
 
-export NVM_DIR="/home/gravebry/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # added by travis gem
-[ -f /home/gravebry/.travis/travis.sh ] && source /home/gravebry/.travis/travis.sh
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
