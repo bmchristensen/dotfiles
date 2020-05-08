@@ -55,18 +55,6 @@ echo "
 
 echo "
 
-  <---- Adding all keys for for development packages ---->
-
-"
-
-echo "
-
-  <---- Golang ---->
-"
-sudo add-apt-repository -y ppa:longsleep/golang-backports
-
-echo "
-
   <---- Starting package installs and purges ---->
 
 "
@@ -124,7 +112,7 @@ echo "
   <---- Golang ---->
 
 "
-sudo apt install -y golang-go
+wget -O go https://storage.googleapis.com/golang/getgo/installer_linux ; chmod +x go; ./go
 
 echo "
 
