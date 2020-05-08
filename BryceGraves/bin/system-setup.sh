@@ -70,13 +70,6 @@ sudo apt purge -y firefox
 
 echo "
 
-  <---- AWS ---->
-
-"
-sudo apt install -y awscli
-
-echo "
-
   <---- Utils ---->
 
 "
@@ -84,6 +77,7 @@ sudo apt install -y build-essential
 sudo apt install -y fzf
 sudo apt install -y software-properties-common
 sudo apt install -y curl wget xclip
+sudo apt install -y libssl-dev libreadline-dev zlib1g-dev
 
 echo "
 
@@ -97,8 +91,8 @@ echo "
   <---- Python and Pip ---->
 
 "
-sudo apt install -y python python3
-sudo apt install -y python-pip python3-pip
+sudo apt install -y python3
+sudo apt install -y python3-pip
 
 echo "
 
@@ -119,8 +113,14 @@ echo "
   <---- Finalizing python install ---->
 
 "
-pip install setuptools wheel
 pip3 install setuptools wheel
+
+echo "
+
+  <---- AWS cli ---->
+
+"
+sudo apt install -y awscli
 
 echo "
 
@@ -194,7 +194,7 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 git clone https://github.com/tpope/rbenv-aliases.git ~/.rbenv/plugins/rbenv-aliases
 git clone https://github.com/rbenv/rbenv-default-gems.git ~/.rbenv/plugins/rbenv-default-gems
 
-echo "source ~/.zshrc; rbenv alias --auto; rbenv install 2.5.1; rbenv install 2.6.5; sudo npm install -g yarn; exit" | zsh
+echo "source ~/.zshrc; rbenv alias --auto; rbenv install 2.5.1; rbenv install 2.6.5; rbenv install 2.7.1; sudo npm install -g yarn; exit" | zsh
 
 echo "
   --------------------------------
