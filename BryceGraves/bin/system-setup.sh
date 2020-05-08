@@ -109,13 +109,6 @@ sudo apt install -y neovim
 
 echo "
 
-  <---- Golang ---->
-
-"
-wget -O go https://storage.googleapis.com/golang/getgo/installer_linux ; chmod +x go; ./go
-
-echo "
-
   <---- Java jdk and jre ---->
 
 "
@@ -240,6 +233,14 @@ echo "
 "
 
 echo "ALL" | bash -c  "$(wget -qO- https://git.io/vQgMr)"
+
+echo "
+
+  <---- Setting up golang now since it requires a zshrc update ---->
+
+"
+wget -O go https://storage.googleapis.com/golang/getgo/installer_linux ; chmod +x go; ./go
+
 
 echo "
   -------------------------------
