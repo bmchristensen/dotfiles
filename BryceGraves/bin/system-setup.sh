@@ -130,7 +130,6 @@ echo "
 cp dotfiles/BryceGraves/src/.eslintrc .eslintrc
 cp dotfiles/BryceGraves/src/.prettierrc .prettierrc
 
-
 echo "
   --------------------
   Installing oh-my-zsh
@@ -203,7 +202,6 @@ echo "
 
 "
 
-
 echo "
   ----------------------------------------
   Setting up nerd fonts used for oh-my-zsh
@@ -232,15 +230,16 @@ echo "
 
 "
 
-echo "ALL" | bash -c  "$(wget -qO- https://git.io/vQgMr)"
+echo "ALL" | bash -c "$(wget -qO- https://git.io/vQgMr)"
 
 echo "
 
   <---- Setting up golang now since it requires a zshrc update ---->
 
 "
-wget -O go https://storage.googleapis.com/golang/getgo/installer_linux ; chmod +x go; ./go
-
+wget -O go https://storage.googleapis.com/golang/getgo/installer_linux
+chmod +x go
+./go
 
 echo "
   -------------------------------
@@ -273,7 +272,7 @@ echo "<---- VS Code Insiders ---->
 
 "
 cd Programs
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor >microsoft.gpg
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 sudo apt update
@@ -302,7 +301,7 @@ echo "<---- Spotify ---->
 
 "
 
-curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
+curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 sudo apt update
 sudo apt install -y spotify-client
