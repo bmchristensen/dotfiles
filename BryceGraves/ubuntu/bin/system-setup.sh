@@ -182,9 +182,9 @@ echo "
 "
 
 echo "
-  --------------------------------------------
-  Setting up nvm,node,rbenv, and yarn with zsh
-  --------------------------------------------
+  ----------------------------------------------
+  Setting up nvm, node, rbenv, and yarn with zsh
+  ----------------------------------------------
 
 "
 
@@ -193,7 +193,7 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 git clone https://github.com/tpope/rbenv-aliases.git ~/.rbenv/plugins/rbenv-aliases
 git clone https://github.com/rbenv/rbenv-default-gems.git ~/.rbenv/plugins/rbenv-default-gems
 
-echo "source ~/.zshrc; rbenv alias --auto; rbenv install 2.5.1; rbenv install 2.6.5; rbenv install 2.7.1; sudo npm install -g yarn; exit" | zsh
+echo "source ~/.zshrc; rbenv alias --auto; rbenv install 2.6.5; rbenv install 2.7.2; sudo npm install -g yarn; exit" | zsh
 
 echo "
   --------------------------------
@@ -237,9 +237,11 @@ echo "
   <---- Setting up golang now since it requires a zshrc update ---->
 
 "
+cd Programs
 wget -O go https://storage.googleapis.com/golang/getgo/installer_linux
 chmod +x go
 ./go
+cd
 
 echo "
   -------------------------------
@@ -259,60 +261,37 @@ cd
 echo "<---- VLC ---->
 
 "
-sudo apt install -y vlc
+sudo snap install vlc
 
 echo "<---- Deluge ---->
 
 "
-sudo add-apt-repository -y ppa:deluge-team/stable
-sudo apt update
-sudo apt install -y deluge
+sudo snap install deluge-lukewh
 
 echo "<---- VS Code Insiders ---->
 
 "
-cd Programs
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor >microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-sudo apt update
-sudo apt install -y code-insiders
-cd
+sudo snap install code-insiders --classic
 
 echo "<---- Discord ---->
 
 "
-cd Programs
-wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
-sudo apt install -y ./discord.deb
-cd
+sudo snap install discord
 
 echo "<---- Telegram ---->
 
 "
-
-wget -O- https://telegram.org/dl/desktop/linux | sudo tar xJ -C ./Programs
-./Programs/Telegram/Telegram &
-PID=$!
-sleep 1
-kill $PID
+sudo snap install telegram-desktop
 
 echo "<---- Spotify ---->
 
 "
-
-curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo apt update
-sudo apt install -y spotify-client
+sudo snap install spotify
 
 echo "<---- Slack ---->
 
 "
-cd Programs
-wget "https://downloads.slack-edge.com/linux_releases/slack-desktop-4.3.2-amd64.deb"
-sudo apt install -y ./slack*.deb
-cd
+sudo snap install slack
 
 echo "
   -----------
