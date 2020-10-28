@@ -127,8 +127,8 @@ echo "
   <---- Adding javascript linters to user root ---->
 
 "
-cp dotfiles/BryceGraves/src/.eslintrc .eslintrc
-cp dotfiles/BryceGraves/src/.prettierrc .prettierrc
+cp dotfiles/BryceGraves/ubuntu/src/.eslintrc .eslintrc
+cp dotfiles/BryceGraves/ubuntu/src/.prettierrc .prettierrc
 
 echo "
   --------------------
@@ -136,9 +136,9 @@ echo "
   --------------------
 
 "
-sudo apt install -y --install-suggests python-pygments zsh
+sudo apt install -y --install-suggests python3-pygments zsh
 echo "Y" | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-cp dotfiles/BryceGraves/src/.zshrc .zshrc
+cp dotfiles/BryceGraves/ubuntu/src/.zshrc .zshrc
 
 echo "
   -------------------------
