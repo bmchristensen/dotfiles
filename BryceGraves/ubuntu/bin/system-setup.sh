@@ -291,7 +291,7 @@ sudo snap install spotify
 echo "<---- Slack ---->
 
 "
-sudo snap install slack
+sudo snap install slack --classic
 
 echo "
   -----------
