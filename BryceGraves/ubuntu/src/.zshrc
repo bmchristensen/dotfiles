@@ -135,6 +135,7 @@ alias -g mc="make clean"
 alias -g ssh-osu="ssh gravebry@flip.engr.oregonstate.edu"
 alias -g ssh-os1="ssh gravebry@os1.engr.oregonstate.edu"
 alias -g tl="task list"
+alias -g co="code-insiders"
 
 # Personal Exports
 
@@ -146,9 +147,8 @@ export PATH="$PATH:$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$HOME/.rbenv/bin:/sn
 
 eval "$(rbenv init -)"
 
-
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
