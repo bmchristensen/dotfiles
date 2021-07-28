@@ -194,14 +194,7 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 git clone https://github.com/tpope/rbenv-aliases.git ~/.rbenv/plugins/rbenv-aliases
 git clone https://github.com/rbenv/rbenv-default-gems.git ~/.rbenv/plugins/rbenv-default-gems
 
-echo "source ~/.zshrc; rbenv alias --auto; rbenv install 2.6.5; rbenv install 2.7.2; sudo npm install -g yarn; exit" | zsh
-
-echo "
-  --------------------------------
-  Setting up nvm and node with zsh
-  --------------------------------
-
-"
+echo "source ~/.zshrc; rbenv alias --auto; rbenv install 2.6.5; rbenv install 2.7.2; nvm install node; sudo npm install -g yarn; exit" | zsh
 
 echo "
   ----------------------------------------
@@ -209,20 +202,12 @@ echo "
   ----------------------------------------
 
 "
-echo "source ~/.zshrc; nvm install node; exit" | zsh
 
 cd Programs
 git clone https://github.com/ryanoasis/nerd-fonts.git
 cd nerd-fonts
 ./install.sh
 cd
-
-echo "
-  -----------------------------------------
-  Done setting up and installing nerd fonts
-  -----------------------------------------
-
-"
 
 echo "
   ---------------------------
