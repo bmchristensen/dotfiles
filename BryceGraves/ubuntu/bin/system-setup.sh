@@ -204,7 +204,7 @@ echo "
 
 "
 
-cd Programs
+cd ~/Programs
 git clone https://github.com/ryanoasis/nerd-fonts.git
 cd nerd-fonts
 ./install.sh
@@ -224,7 +224,7 @@ echo "
   <---- Setting up golang now since it requires a zshrc update ---->
 
 "
-cd Programs
+cd ~/Programs
 wget -O go https://storage.googleapis.com/golang/getgo/installer_linux
 chmod +x go
 ./go
@@ -240,7 +240,7 @@ echo "
 echo "<---- Chrome ---->
 
 "
-cd Programs
+cd ~/Programs
 wget -O google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install -y ./google-chrome.deb
 cd
@@ -287,7 +287,7 @@ echo "
 
 "
 
-cd Programs
+cd ~/Programs
 rm -rf *
 cd
 rm -rf dotfiles-master
