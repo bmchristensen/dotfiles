@@ -78,6 +78,7 @@ sudo apt install -y fzf
 sudo apt install -y software-properties-common
 sudo apt install -y curl wget xclip
 sudo apt install -y libssl-dev libreadline-dev zlib1g-dev
+sudo apt install -y gnome-tweaks
 
 echo "
 
@@ -274,10 +275,10 @@ echo "<---- Spotify ---->
 "
 sudo snap install spotify
 
-echo "<---- Slack ---->
+echo "<---- Todoist ---->
 
 "
-sudo snap install slack --classic
+sudo snap install todoist
 
 echo "
   -----------
