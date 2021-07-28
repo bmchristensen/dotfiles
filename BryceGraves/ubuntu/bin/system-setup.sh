@@ -96,6 +96,14 @@ sudo apt install -y python3-pip
 
 echo "
 
+  <---- Common Python Dependencies ---->
+
+"
+
+pip3 install setuptools wheel
+
+echo "
+
   <---- Neovim ---->
 
 "
@@ -107,13 +115,6 @@ echo "
 
 "
 sudo apt install -y default-jdk default-jre
-
-echo "
-
-  <---- Finalizing python install ---->
-
-"
-pip3 install setuptools wheel
 
 echo "
 
