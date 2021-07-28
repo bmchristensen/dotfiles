@@ -194,7 +194,7 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 git clone https://github.com/tpope/rbenv-aliases.git ~/.rbenv/plugins/rbenv-aliases
 git clone https://github.com/rbenv/rbenv-default-gems.git ~/.rbenv/plugins/rbenv-default-gems
 
-echo "source ~/.zshrc; rbenv alias --auto; rbenv install 2.6.5; rbenv install 2.7.2; nvm install node; sudo npm install -g yarn; exit" | zsh
+echo "source ~/.zshrc; rbenv alias --auto; rbenv install 2.6.5; rbenv install 2.7.2; nvm install node; npm install -g yarn; exit" | zsh
 
 echo "
   ----------------------------------------
