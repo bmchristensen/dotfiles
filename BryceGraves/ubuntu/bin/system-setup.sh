@@ -231,6 +231,15 @@ echo "
 echo "ALL" | bash -c "$(wget -qO- https://git.io/vQgMr)"
 
 echo "
+  ----------------------------
+  Setting go specific programs
+  ----------------------------
+
+"
+
+echo "source ~/.zshrc; go get github.com/jesseduffield/lazygit; exit" | zsh
+
+echo "
   -------------------------------
   Setting up desktop applications
   -------------------------------
