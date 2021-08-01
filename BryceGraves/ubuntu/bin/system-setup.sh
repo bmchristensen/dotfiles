@@ -79,6 +79,7 @@ sudo apt install -y software-properties-common
 sudo apt install -y curl wget xclip
 sudo apt install -y libssl-dev libreadline-dev zlib1g-dev
 sudo apt install -y gnome-tweaks
+sudo apt install -y jq
 
 echo "
 
