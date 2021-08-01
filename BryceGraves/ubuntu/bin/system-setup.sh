@@ -119,6 +119,17 @@ sudo apt install -y default-jdk default-jre
 
 echo "
 
+  <---- Install Go ---->
+
+"
+cd ~/Programs
+wget -O go https://storage.googleapis.com/golang/getgo/installer_linux
+chmod +x go
+./go
+cd
+
+echo "
+
   <---- AWS cli ---->
 
 "
@@ -218,17 +229,6 @@ echo "
 "
 
 echo "ALL" | bash -c "$(wget -qO- https://git.io/vQgMr)"
-
-echo "
-
-  <---- Setting up golang now since it requires a zshrc update ---->
-
-"
-cd ~/Programs
-wget -O go https://storage.googleapis.com/golang/getgo/installer_linux
-chmod +x go
-./go
-cd
 
 echo "
   -------------------------------
