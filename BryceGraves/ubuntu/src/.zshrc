@@ -136,6 +136,7 @@ alias -g ssh-osu="ssh gravebry@flip.engr.oregonstate.edu"
 alias -g ssh-os1="ssh gravebry@os1.engr.oregonstate.edu"
 alias -g tl="task list"
 alias -g co="code-insiders"
+alias -g lg="lazygit"
 
 # Personal Exports
 
