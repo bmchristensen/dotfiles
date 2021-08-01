@@ -142,8 +142,9 @@ alias -g co="code-insiders"
 export ANDROID_HOME=$HOME/Android/Sdk
 export ANDROID_SDK=$ANDROID_HOME
 export JAVA_HOME=/usr/lib/jvm/default-java
+export GOPATH=$HOME/Code/go
 
-export PATH="$PATH:$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$HOME/.rbenv/bin:/snap/bin:/opt/yarn-[version]/bin:$HOME/.local/bin"
+export PATH="$PATH:$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$HOME/.rbenv/bin:/snap/bin:/opt/yarn-[version]/bin:$HOME/.local/bin:$HOME/.go/bin:$HOME/Code/go/bin"
 
 eval "$(rbenv init -)"
 
