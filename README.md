@@ -17,6 +17,8 @@ I am gonna make this change without asking >.>
 
 ### Bryce
 
-- [ ] add message about what I still need to do post update
-- [ ] add colored messages
-- [ ] move installs to different functions
+- [ ] Figure out what happened to the nerdfont fonts I like (MesloLGM)
+- [ ] Add message about what I still need to do post update
+- [ ] Add colored messages
+- [ ] Move installs to different functions
+- [ ] Install by list to clean up the install handling
