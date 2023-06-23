@@ -17,8 +17,22 @@ I am gonna make this change without asking >.>
 
 ### Bryce
 
-- [ ] Figure out what happened to the nerdfont fonts I like (MesloLGM)
-- [ ] Add message about what I still need to do post update
-- [ ] Add colored messages
-- [ ] Move installs to different functions
-- [ ] Install by list to clean up the install handling
+Install Script
+* Figure out what happened to the nerdfont fonts I like (MesloLGM)
+* Add message about what I still need to do post update
+* Add colored messages
+* Move installs to different functions
+* Install by list to clean up the install handling
+
+Neovim
+* Figure out how I want to structure these files
+* To Add
+  * Git diff indicators
+  * Workspace functionality
+  * Line indicators
+  * Colored brackets
+* Indent Blankline
+  * Figure out if I like the line for the rainbow guides
+  * Add context line for brackets
+  * Remove dashes for lines without text, wanna keep the normal dots
+  * Either indicate with red if the indent is wrong or add max_indent_increase
