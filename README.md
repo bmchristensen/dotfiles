@@ -24,12 +24,12 @@ Install Script
 * Move installs to different functions
 * Install by list to clean up the install handling
 * Add latest neovim to install to setup script
-* Move away form snap installs since they aren't very portable
+* Move away from snap installs since they aren't very portable
 
 Neovim
+* Prevent indent highlighting for empty lines
 * Figure out how I want to structure these files
 * To Add
-  * Git diff indicators
   * Workspace functionality
   * Line indicators
   * Colored brackets

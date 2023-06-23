@@ -17,8 +17,16 @@ Plug 'lewis6991/gitsigns.nvim'
 
 call plug#end()
 
-colorscheme onedark
-
-:source /home/bryceg/Code/dotfiles/BryceGraves/ubuntu/src/indent_blankline_config.lua
 :source /home/bryceg/Code/dotfiles/BryceGraves/ubuntu/src/nvim_treesitter_config.lua
 :source /home/bryceg/Code/dotfiles/BryceGraves/ubuntu/src/gitsigns_config.lua
+
+" The theme is enabled in the config
+:source /home/bryceg/Code/dotfiles/BryceGraves/ubuntu/src/onedark_config.lua
+
+" Needs to be loaded after one dark styles to prevend overriding the styles
+:source /home/bryceg/Code/dotfiles/BryceGraves/ubuntu/src/indent_blankline_config.lua
+
+set autoindent
+set expandtab
+set tabstop=2
+set shiftwidth=2
