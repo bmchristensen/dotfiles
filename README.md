@@ -23,6 +23,8 @@ Install Script
 * Add colored messages
 * Move installs to different functions
 * Install by list to clean up the install handling
+* Add latest neovim to install to setup script
+* Move away form snap installs since they aren't very portable
 
 Neovim
 * Figure out how I want to structure these files

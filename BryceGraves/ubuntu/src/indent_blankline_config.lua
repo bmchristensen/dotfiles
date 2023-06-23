@@ -9,8 +9,9 @@ vim.cmd [[highlight IndentBlanklineIndent3 guifg=#30465d guibg=#161e37 gui=nocom
 
 require("indent_blankline").setup {
 --      Not sure if I like the space only indent or the left centered line... I kinda like the left line since it accurately shows the character that exist
---        char = "▎",
-        char = "",
+        char = "▎",
+--        char = "",
+        context_char = "│",
         char_highlight_list = {
                 "IndentBlanklineIndent1",
                 "IndentBlanklineIndent2",
