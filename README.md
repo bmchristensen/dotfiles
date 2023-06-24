@@ -25,16 +25,17 @@ Install Script
 * Install by list to clean up the install handling
 * Add latest neovim to install to setup script
 * Move away from snap installs since they aren't very portable
+* Remove old zsh reload package
 
 Neovim
-* Prevent indent highlighting for empty lines
+* Complete neovim tutor command
+* Prevent indent highlighting for empty lines, this might be related to the highlight options
 * Figure out how I want to structure these files
 * To Add
   * Workspace functionality
   * Line indicators
-  * Colored brackets
 * Indent Blankline
   * Figure out if I like the line for the rainbow guides
-  * Add context line for brackets
   * Remove dashes for lines without text, wanna keep the normal dots
   * Either indicate with red if the indent is wrong or add max_indent_increase
+
