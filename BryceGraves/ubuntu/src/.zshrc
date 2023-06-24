@@ -72,7 +72,8 @@ plugins=(
   bundler
   colored-man-pages
   colorize
-  common-aliases
+# TODO: keep an eye on this... not sure what changed by this was causing both a return of 1 on terminal load and breaking nvm
+#  common-aliases
   debian
   dircycle
   docker
@@ -92,7 +93,6 @@ plugins=(
   taskwarrior
   vscode
   yarn
-  zsh_reload
   zsh-autosuggestions
   zsh-interactive-cd
   zsh-navigation-tools
@@ -149,8 +149,8 @@ export PATH="$PATH:$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$HOME/.rbenv/bin:/sn
 
 eval "$(rbenv init -)"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
+
+PROG=todoist source "/home/bryceg/Code/go/pkg/mod/github.com/urfave/cli/v2@v2.25.1/autocomplete/zsh_autocomplete"
+
