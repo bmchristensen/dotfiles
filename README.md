@@ -34,6 +34,10 @@ Neovim
 * To Add
   * Workspace functionality
   * Line indicators
+  * Hex color highlighting
+  * Telegraph (also figure out what it really is)
+  * Snippets
+  * Method list pane
 * Indent Blankline
   * Figure out if I like the line for the rainbow guides
   * Remove dashes for lines without text, wanna keep the normal dots
