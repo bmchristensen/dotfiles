@@ -26,6 +26,7 @@ Install Script
 * Add latest neovim to install to setup script
 * Move away from snap installs since they aren't very portable
 * Remove old zsh reload package
+* Update fzf install to pull the git repo and install directly from that
 
 Neovim
 * Complete neovim tutor command

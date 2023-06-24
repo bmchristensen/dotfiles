@@ -1,13 +1,23 @@
 call plug#begin()
 
+" Provides fzf commands and automagically keeps the binary up to date for us
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+" Used to align selected text elements
+Plug 'junegunn/vim-easy-align'
+
 " Used to generate syntax trees
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 " Colored bracked pairs, this is a plugin for treesitter
 Plug 'HiPhish/nvim-ts-rainbow2'
+
 " Used to mock indent rainbow
 Plug 'lukas-reineke/indent-blankline.nvim'
+
 " Multi curser support"
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
 " Theme
 Plug 'navarasu/onedark.nvim'
 " Git support including blame and highlighting
