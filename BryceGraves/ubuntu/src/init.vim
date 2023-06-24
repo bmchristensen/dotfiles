@@ -12,6 +12,9 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Colored bracked pairs, this is a plugin for treesitter
 Plug 'HiPhish/nvim-ts-rainbow2'
 
+" Color hex values in code
+Plug 'NvChad/nvim-colorizer.lua'
+
 " Used to mock indent rainbow
 Plug 'lukas-reineke/indent-blankline.nvim'
 

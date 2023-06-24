@@ -74,7 +74,9 @@ echo "
 
 "
 sudo apt install -y build-essential
-sudo apt install -y fzf
+
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && yes n | ~/.fzf/install
+
 sudo apt install -y software-properties-common
 sudo apt install -y curl wget xclip
 sudo apt install -y libssl-dev libreadline-dev zlib1g-dev
