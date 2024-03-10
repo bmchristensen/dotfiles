@@ -24,7 +24,7 @@ Install Script
 * Move installs to different functions
 * Install by list to clean up the install handling
 * Add latest neovim to install to setup script
-* Move away from snap installs since they aren't very portable
+* Move away from snap installs since they aren't very portable and are broken sometimes
 * Remove old zsh reload package
 * Update fzf install to pull the git repo and install directly from that
 
@@ -36,7 +36,7 @@ Neovim
   * Workspace functionality
   * Line indicators
   * Hex color highlighting
-  * Telegraph (also figure out what it really is)
+  * Telegraph (for more complex searches that GitFiles can't handle)
   * Snippets
   * Method list pane
 * Indent Blankline

@@ -40,7 +40,7 @@ Plug 'nvim-tree/nvim-web-devicons'
 " File explorer package... kind of love the main branch is chad
 " TODO: check in on this agian in the future when it is more stable... or
 " maybe see about helping out
-" Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 
 call plug#end()
 
@@ -69,4 +69,6 @@ set autoindent
 set expandtab
 set tabstop=2
 set shiftwidth=2
+
+let g:python3_host_prog = expand('~/.python/bin/python')
 

@@ -95,16 +95,18 @@ echo "
   <---- Python and Pip ---->
 
 "
-sudo apt install -y python3
-sudo apt install -y python3-pip
+sudo apt install -y python3 python3-venv python3-pip 
 
 echo "
 
   <---- Common Python Dependencies ---->
 
 "
+python3 -m pip install --user --upgrade pynvim
+python3⋅-m⋅pip⋅install⋅--user⋅--upgrade⋅wheel
 
-pip3 install setuptools wheel
+# TODO: figure out if setup tools comes with the python install
+# pip3 install setuptools wheel
 
 echo "
 
